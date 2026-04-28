@@ -107,16 +107,10 @@ noisy pairwise labels:
 
 ## Requirements
 
-  -----------------------------------------------------------------------
-  Component                           Version
-  ----------------------------------- -----------------------------------
-  Python                              `>=3.12,<3.15`
-
-  Core libs                           `torch`, `torchvision`, `timm`,
-                                      `numpy`, `pandas`, `scipy`,
-                                      `scikit-learn`, `optuna`,
-                                      `trueskill`, `pillow`
-  -----------------------------------------------------------------------
+| Component | Version |
+| :--- | :--- |
+| **Python** | `>=3.12, <3.15` |
+| **Core libs** | `torch`, `torchvision`, `timm`, `numpy`, `pandas`, `scipy`, `scikit-learn`, `optuna`, `trueskill`, `pillow` |
 
 Install dependencies:
 
@@ -137,27 +131,21 @@ pip install -r requirements-dev.txt
 ## Input Data
 
 The CLI expects 3 CSV files:
-
--   `train.csv` - training pairs
--   `val.csv` - validation pairs
--   `votes.csv` - all votes set used to fit global TrueSkill maps
-
-You can provide prefiltered `train.csv` / `val.csv` built from a
-TrueSkill ranking pipeline; the trainer will use them as-is.
+* `train.csv` – training pairs
+* `val.csv` – validation pairs
+* `votes.csv` – all votes set used to fit global TrueSkill maps
 
 Required CSV columns:
 
-  Column             Description
-  ------------------ ----------------------------
-  `study_question`   one of the 6 categories
-  `left`             left image filename/id
-  `right`            right image filename/id
-  `choice`           winner (`left` or `right`)
+| Column | Description |
+| :--- | :--- |
+| `study_question` | one of the 6 categories |
+| `left` | left image filename/id |
+| `right` | right image filename/id |
+| `choice` | winner (`left` or `right`) |
 
-Images are provided with `--images-root` and searched recursively
-(`.jpg`, `.jpeg`, `.png`).\
-If `final_photo_dataset` exists under this root, it is preferred
-automatically.
+Images are provided with `--images-root` and searched recursively (`.jpg`, `.jpeg`, `.png`).
+If `final_photo_dataset` exists under this root, it is preferred automatically.
 
 ## CLI Usage
 
@@ -319,8 +307,8 @@ src/uq_training_engine/
 
 ## Notes
 
-> \[!IMPORTANT\] `--train-csv`, `--val-csv`, `--votes-csv`, and
-> `--images-root` are validated before execution.\
+> [!IMPORTANT]
+> `--train-csv`, `--val-csv`, `--votes-csv`, and `--images-root` are validated before execution.
 > If any required path is missing, CLI exits with code `2`.
-
+>
 > The output directory is created automatically.
